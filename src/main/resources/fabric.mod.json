@@ -1,29 +1,37 @@
 {
 	"schemaVersion": 1,
-	"id": "toomanybinds",
-	"version": "${version}",
-	"name": "Too Many Binds",
-	"description": "Solve the keybind problem, once and for all.",
+	"id": "toomanybinds-core",
+	"version": "4",
+	"name": "Too Many Binds Core",
+	"description": "Mod:D",
 	"authors": [
-		"NebelNidas",
-		"dzwdz"
+		"RevivesersMC",
+		"faiks"
 	],
-	"contact": {
-		"sources": "https://github.com/ReviversMC/too-many-binds",
-		"issues": "https://github.com/ReviversMC/too-many-binds/issues",
-		"homepage": "https://www.curseforge.com/minecraft/mc-mods/too-many-binds"
-	},
-	"icon": "assets/toomanybinds/icon.png",
-	"license": "MPL-2.0",
 	"environment": "client",
 	"entrypoints": {
-		"modmenu": [
-			"com.github.reviversmc.toomanybinds.integrations.ModMenuIntegration"
+		"main": [
+			"md.faiks.toomanybinds.TooManyBinds1204"
 		]
 	},
+	"mixins": [
+		"toomanybinds.mixins.json"
+	],
 	"depends": {
-		"minecraft": ">=1.16",
-		"fabricloader": ">=0.12.9",
-		"toomanybinds-compat-1-19-3": "*"
+		"minecraft": ">=1.20",
+		"fabric-lifecycle-events-v1": "*",
+		"fabric-key-binding-api-v1": "*",
+		"cloth-config2": ">=13.0.121"
+	},
+	"recommends": {
+		"amecs": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"badges": ["library"],
+			"parent": {
+				"id": "toomanybinds"
+			}
+		}
 	}
 }
