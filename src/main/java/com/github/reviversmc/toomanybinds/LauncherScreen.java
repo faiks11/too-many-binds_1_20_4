@@ -113,6 +113,7 @@ public abstract class LauncherScreen extends Screen {
 	@Override
 	public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
 
+
 		if (TooManyBinds.favoriteKey.matchesKey(keyCode, scanCode)) {
 			List<BindSuggestion> suggestions = completion.getSuggestions();
 
@@ -128,19 +129,19 @@ public abstract class LauncherScreen extends Screen {
 			return true;
 		} else if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
 			List<BindSuggestion> suggestions = completion.getSuggestions();
-			closeScreen();
+			this.close();
 
 			if (suggestions.size() > selected) {
 				suggestions.get(selected).execute();
 			}
 
 			return true;
+
 		}
 		return textField.keyPressed(keyCode, scanCode, modifiers)
 				|| super.keyPressed(keyCode, scanCode, modifiers);
 	}
 
-	protected abstract void closeScreen();
 
 	public void textChangeListener(String s) {
 		completion.updateSuggestions(s);

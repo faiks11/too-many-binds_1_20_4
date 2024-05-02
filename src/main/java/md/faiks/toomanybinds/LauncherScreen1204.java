@@ -6,10 +6,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 public class LauncherScreen1204 extends LauncherScreen {
 
 	private boolean repeatEvents;
-	@Override
-	protected void closeScreen() {
-		client.close();
-	}
+
 
 
 	@Override
